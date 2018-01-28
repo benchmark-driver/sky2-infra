@@ -1,13 +1,19 @@
-GEM
-  remote: https://rubygems.org/
+GIT
+  remote: https://github.com/k0kubun/hocho
+  revision: 66f95cce828f40569db5f6becdcaccfb5741eee6
+  ref: 66f95cce828f40569db5f6becdcaccfb5741eee6
   specs:
-    ansi (1.5.0)
-    hashie (3.5.7)
     hocho (0.2.1)
       hashie
       itamae
       net-ssh
       thor
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ansi (1.5.0)
+    hashie (3.5.7)
     itamae (1.9.11)
       ansi
       hashie
@@ -31,7 +37,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  hocho
+  hocho!
 
 BUNDLED WITH
    1.16.1

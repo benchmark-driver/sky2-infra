@@ -1,0 +1,13 @@
+property_providers:
+  - add_default:
+      properties:
+        preferred_driver: mitamae
+
+driver_options:
+  mitamae:
+    mitamae_path: /home/k0kubun/bin/mitamae
+    mitamae_prepare_script: |
+      mkdir -p ~/bin &&
+      wget -O ~/bin/mitamae https://github.com/itamae-kitchen/mitamae/releases/download/v1.5.2/mitamae-x86_64-linux &&
+      echo "7b19aed757b1acb8490dda44fe3d42c493309158bff1a5eac9a8618b255ff12d  /home/k0kubun/bin/mitamae" | shasum -a 256 -c &&
+      chmod +x ~/bin/mitamae
