@@ -1,1 +1,1 @@
-execute 'echo hello'
+include_recipe 'rbenv'
