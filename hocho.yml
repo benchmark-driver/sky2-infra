@@ -6,6 +6,7 @@ property_providers:
 driver_options:
   mitamae:
     mitamae_path: /home/k0kubun/bin/mitamae
+    #mitamae_options: ['-l', 'debug']
     mitamae_prepare_script: |
       mkdir -p ~/bin &&
       wget -O ~/bin/mitamae https://github.com/itamae-kitchen/mitamae/releases/download/v1.5.2/mitamae-x86_64-linux &&

@@ -1,6 +1,6 @@
 # sky2-infra
 
-Provisioning infrastructure of ruby-sky2 server.
+Configuration management of ruby-sky2 server.
 
 ## Setup
 
