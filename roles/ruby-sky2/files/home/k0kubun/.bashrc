@@ -117,6 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 alias ls='ls -la --color'
+alias be='bundle exec'
 
 export PATH="${HOME}/.rbenv/bin:${PATH}"
 eval "$(rbenv init -)"
