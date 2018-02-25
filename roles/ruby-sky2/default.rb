@@ -7,6 +7,7 @@ include_recipe 'rbenv'
   2.3.6
   2.4.3
   2.5.0
+  2.6.0-preview1
 ].each do |version|
   execute "/home/k0kubun/.rbenv/bin/rbenv install #{version}" do
     not_if "test -d /home/k0kubun/.rbenv/versions/#{version}"

@@ -12,14 +12,25 @@ And make sure that `ssh ruby-sky2` succeeds.
 
 Note: Currently this repository assumes the ssh user is "k0kubun".
 
-## Dry-run
+## Local operations
+
+### Dry-run
 
 ```
 bin/apply -n
 ```
 
-## Apply
+### Apply
 
 ```
 bin/apply
+```
+
+## Server operations
+
+### Install Ruby revisions
+
+```
+git -C ~/ruby pull origin trunk
+ruby-builder revision r61465..r62448 -d ~/ruby
 ```
