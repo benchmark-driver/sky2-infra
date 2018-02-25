@@ -23,3 +23,7 @@ end
 execute 'git clone https://github.com/benchmark-driver/skybench /home/k0kubun/skybench' do
   not_if 'test -d /home/k0kubun/skybench'
 end
+
+execute 'git clone https://github.com/benchmark-driver/optcarrot /home/k0kubun/optcarrot' do
+  not_if 'test -d /home/k0kubun/optcarrot'
+end
