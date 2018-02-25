@@ -15,11 +15,11 @@ Note: Currently this repository assumes the ssh user is "k0kubun".
 ## Dry-run
 
 ```
-bin/hocho-apply -n
+bin/apply -n
 ```
 
 ## Apply
 
 ```
-bin/hocho-apply
+bin/apply
 ```
