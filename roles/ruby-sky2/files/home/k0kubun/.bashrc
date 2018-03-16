@@ -119,5 +119,8 @@ fi
 alias ls='ls -la --color'
 alias be='bundle exec'
 
+alias gs='git status'
+alias gd='git diff'
+
 export PATH="${HOME}/.rbenv/bin:${PATH}"
 eval "$(rbenv init -)"
