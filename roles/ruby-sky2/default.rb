@@ -1,4 +1,7 @@
+# You need to put deploy key for github.com:benchmark-driver/skybench on ruby-sky2.
+
 include_recipe 'rbenv'
+include_recipe 'ssh'
 
 %w[
   2.0.0-p648
@@ -20,10 +23,6 @@ remote_file '/home/k0kubun/.bashrc' do
   group 'k0kubun'
 end
 
-execute 'git clone https://github.com/benchmark-driver/skybench /home/k0kubun/skybench' do
+execute 'git clone --recursive git@github.com:benchmark-driver/skybench /home/k0kubun/skybench' do
   not_if 'test -d /home/k0kubun/skybench'
-end
-
-execute 'git clone https://github.com/benchmark-driver/optcarrot /home/k0kubun/optcarrot' do
-  not_if 'test -d /home/k0kubun/optcarrot'
 end

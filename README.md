@@ -32,5 +32,5 @@ bin/apply
 
 ```
 git -C ~/ruby pull origin trunk
-ruby-builder revision r61465..r62448 -d ~/ruby
+ruby-builder revision r62448..r62573 -d ~/ruby
 ```
