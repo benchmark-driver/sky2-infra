@@ -3,7 +3,7 @@ Description=Run Skybench
 
 [Service]
 Type=simple
-ExecStartPre=/usr/bin/git -C /home/k0kubun/skybench pull --rebase origin master
+ExecStartPre=/bin/bash -c 'cd /home/k0kubun/skybench; git fetch origin master; git reset --hard remotes/origin/master'
 ExecStart=/bin/bash -c 'export PATH="/home/k0kubun/.rbenv/bin:${PATH}"; exec /home/k0kubun/skybench/bin/run'
 
 [Install]
