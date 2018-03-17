@@ -121,6 +121,14 @@ alias be='bundle exec'
 
 alias gs='git status'
 alias gd='git diff'
+alias co='git checkout'
+function gl(){
+  if [ $# -ne 0 ]; then
+    git --no-pager log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' $@
+  else
+    git --no-pager log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' -10
+  fi
+}
 
 export PATH="${HOME}/.rbenv/bin:${PATH}"
 eval "$(rbenv init -)"
