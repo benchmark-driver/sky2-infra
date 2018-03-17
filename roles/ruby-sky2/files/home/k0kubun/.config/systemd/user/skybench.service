@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Skybench
+
+[Service]
+Type=simple
+ExecStartPre=git -C /home/k0kubun/skybench pull origin master
+ExecStart=bash -c 'export PATH="/home/k0kubun/.rbenv/bin:${PATH}"; exec /home/k0kubun/skybench/bin/run'
+
+[Install]
+WantedBy=default.target

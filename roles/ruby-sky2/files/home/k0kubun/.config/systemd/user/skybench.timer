@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer to run Skybench
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+Unit=skybench.service
+
+[Install]
+WantedBy=timers.target
