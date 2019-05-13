@@ -86,6 +86,11 @@ execute 'git clone https://github.com/benchmark-driver/sky2-bench /home/k0kubun/
   not_if 'test -d /home/k0kubun/sky2-bench'
 end
 
+execute 'git clone https://github.com/ruby/ruby /home/k0kubun/ruby' do
+  user 'k0kubun'
+  not_if 'test -d /home/k0kubun/ruby'
+end
+
 %w[
   /home/k0kubun/.config
   /home/k0kubun/.config/systemd
