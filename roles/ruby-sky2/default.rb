@@ -52,6 +52,12 @@ remote_file '/home/k0kubun/.gitconfig' do
   group 'k0kubun'
 end
 
+remote_file '/etc/crontab' do
+  mode '644'
+  owner 'root'
+  group 'root'
+end
+
 # execute 'git clone --recursive git@github.com:benchmark-driver/skybench /home/k0kubun/skybench' do
 #   not_if 'test -d /home/k0kubun/skybench'
 # end
