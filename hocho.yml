@@ -10,5 +10,5 @@ driver_options:
     mitamae_prepare_script: |
       mkdir -p ~/bin &&
       wget -O ~/bin/mitamae https://github.com/itamae-kitchen/mitamae/releases/download/v1.7.5/mitamae-x86_64-linux &&
-      echo "60108340d7d61bfa43bd2ff4797b193b2a97231d052da6530848e788b0bf0164 /home/k0kubun/bin/mitamae" | shasum -a 256 -c &&
+      echo "60108340d7d61bfa43bd2ff4797b193b2a97231d052da6530848e788b0bf0164  /home/k0kubun/bin/mitamae" | shasum -a 256 -c &&
       chmod +x ~/bin/mitamae
