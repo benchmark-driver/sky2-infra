@@ -21,13 +21,13 @@ envchain --set sudo SUDO_PASSWORD
 ### Dry-run
 
 ```
-envchain sudo bin/apply -n
+bin/apply -n
 ```
 
 ### Apply
 
 ```
-envchain sudo bin/apply
+bin/apply
 ```
 
 ## Server operations

@@ -1,5 +1,8 @@
-# You need to put deploy key for github.com:benchmark-driver/skybench on ruby-sky2.
+# You need to put deploy key for github.com:benchmark-driver/sky2-result on ruby-sky2.
 # Updating known_hosts is not automated as well.
+#
+# Run `sudo loginctl enable-linger k0kubun` too.
+# Also you should reboot to make sure `cpufreq-info -p` becomes performance.
 
 include_recipe 'rbenv'
 include_recipe 'ssh-config'
@@ -78,35 +81,36 @@ remote_file '/etc/default/cpufrequtils' do
   notifies :restart, 'service[cpufrequtils]'
 end
 
-# execute 'git clone --recursive git@github.com:benchmark-driver/skybench /home/k0kubun/skybench' do
-#   not_if 'test -d /home/k0kubun/skybench'
-# end
+execute 'git clone https://github.com/benchmark-driver/sky2-bench /home/k0kubun/sky2-bench' do
+  user 'k0kubun'
+  not_if 'test -d /home/k0kubun/sky2-bench'
+end
 
-# %w[
-#   /home/k0kubun/.config
-#   /home/k0kubun/.config/systemd
-#   /home/k0kubun/.config/systemd/user
-#   /home/k0kubun/.config/systemd/user/timers.target.wants
-# ].each do |dir|
-#   directory dir do
-#     mode '755'
-#     owner 'k0kubun'
-#     group 'k0kubun'
-#   end
-# end
+%w[
+  /home/k0kubun/.config
+  /home/k0kubun/.config/systemd
+  /home/k0kubun/.config/systemd/user
+  /home/k0kubun/.config/systemd/user/timers.target.wants
+].each do |dir|
+  directory dir do
+    mode '755'
+    owner 'k0kubun'
+    group 'k0kubun'
+  end
+end
 
-# remote_file '/home/k0kubun/.config/systemd/user/skybench.service' do
-#   mode '600'
-#   owner 'k0kubun'
-#   group 'k0kubun'
-# end
+remote_file '/home/k0kubun/.config/systemd/user/sky2-bench.service' do
+  mode '600'
+  owner 'k0kubun'
+  group 'k0kubun'
+end
 
-# remote_file '/home/k0kubun/.config/systemd/user/skybench.timer' do
-#   mode '600'
-#   owner 'k0kubun'
-#   group 'k0kubun'
-# end
+remote_file '/home/k0kubun/.config/systemd/user/sky2-bench.timer' do
+  mode '600'
+  owner 'k0kubun'
+  group 'k0kubun'
+end
 
-# link '/home/k0kubun/.config/systemd/user/timers.target.wants/skybench.timer' do
-#   to '/home/k0kubun/.config/systemd/user/skybench.timer'
-# end
+link '/home/k0kubun/.config/systemd/user/timers.target.wants/sky2-bench.timer' do
+  to '/home/k0kubun/.config/systemd/user/sky2-bench.timer'
+end

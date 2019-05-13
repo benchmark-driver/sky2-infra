@@ -1,0 +1,10 @@
+[Unit]
+Description=Run sky2-bench
+
+[Service]
+Type=simple
+ExecStartPre=/bin/bash -c 'cd /home/k0kubun/sky2-bench; git fetch origin master; git reset --hard remotes/origin/master'
+ExecStart=/bin/bash -c 'export PATH="/home/k0kubun/.rbenv/bin:${PATH}"; exec /home/k0kubun/sky2-bench/bin/run'
+
+[Install]
+WantedBy=default.target
