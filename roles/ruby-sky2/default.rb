@@ -4,19 +4,19 @@
 include_recipe 'rbenv'
 include_recipe 'ssh'
 
-# %w[
-#   2.0.0-p648
-#   2.1.10
-#   2.2.9
-#   2.3.6
-#   2.4.3
-#   2.5.0
-#   2.6.0-preview1
-# ].each do |version|
-#   execute "/home/k0kubun/.rbenv/bin/rbenv install #{version}" do
-#     not_if "test -d /home/k0kubun/.rbenv/versions/#{version}"
-#   end
-# end
+%w[
+  2.0.0-p648
+  2.1.10
+  2.2.10
+  2.3.8
+  2.4.6
+  2.5.5
+  2.6.3
+].each do |version|
+  execute "/home/k0kubun/.rbenv/bin/rbenv install #{version}" do
+    not_if "test -d /home/k0kubun/.rbenv/versions/#{version}"
+  end
+end
 
 # remote_file '/home/k0kubun/.bashrc' do
 #   mode '644'
