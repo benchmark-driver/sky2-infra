@@ -1,13 +1,6 @@
 # You need to put deploy key for github.com:benchmark-driver/skybench on ruby-sky2.
 # Updating known_hosts is not automated as well.
 
-# Do this manually too:
-# remote_file '/etc/crontab' do
-#   mode '644'
-#   owner 'root'
-#   group 'root'
-# end
-
 include_recipe 'rbenv'
 include_recipe 'ssh-config'
 
@@ -22,6 +15,7 @@ execute "install openssl-#{openssl_version}" do
     make -j4
     make install
   EOS
+  user 'k0kubun'
   not_if "test -d /home/k0kubun/openssl-#{openssl_version}"
 end
 
@@ -33,6 +27,7 @@ end
 ].each do |version|
   configure_opts = "--with-openssl-dir=/home/k0kubun/openssl-#{openssl_version}"
   execute "env RUBY_CONFIGURE_OPTS='#{configure_opts}' /home/k0kubun/.rbenv/bin/rbenv install #{version}" do
+    user 'k0kubun'
     not_if "test -d /home/k0kubun/.rbenv/versions/#{version}"
   end
 end
@@ -43,6 +38,7 @@ end
   '2.6.3',
 ].each do |version|
   execute "/home/k0kubun/.rbenv/bin/rbenv install #{version}" do
+    user 'k0kubun'
     not_if "test -d /home/k0kubun/.rbenv/versions/#{version}"
   end
 end
@@ -57,6 +53,12 @@ remote_file '/home/k0kubun/.gitconfig' do
   mode '644'
   owner 'k0kubun'
   group 'k0kubun'
+end
+
+remote_file '/etc/crontab' do
+  mode '644'
+  owner 'root'
+  group 'root'
 end
 
 package 'cpufrequtils'

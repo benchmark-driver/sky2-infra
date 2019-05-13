@@ -10,20 +10,24 @@ bundle install
 
 And make sure that `ssh ruby-sky2` succeeds.
 
-Note: Currently this repository assumes the ssh user is "k0kubun".
-
 ## Local operations
+
+### Prerequisites
+
+```
+envchain --set sudo SUDO_PASSWORD
+```
 
 ### Dry-run
 
 ```
-bin/apply -n
+envchain sudo bin/apply -n
 ```
 
 ### Apply
 
 ```
-bin/apply
+envchain sudo bin/apply
 ```
 
 ## Server operations
