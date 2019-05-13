@@ -9,6 +9,6 @@ driver_options:
     #mitamae_options: ['-l', 'debug']
     mitamae_prepare_script: |
       mkdir -p ~/bin &&
-      wget -O ~/bin/mitamae https://github.com/itamae-kitchen/mitamae/releases/download/v1.5.2/mitamae-x86_64-linux &&
-      echo "7b19aed757b1acb8490dda44fe3d42c493309158bff1a5eac9a8618b255ff12d  /home/k0kubun/bin/mitamae" | shasum -a 256 -c &&
+      wget -O ~/bin/mitamae https://github.com/itamae-kitchen/mitamae/releases/download/v1.7.5/mitamae-x86_64-linux &&
+      echo "60108340d7d61bfa43bd2ff4797b193b2a97231d052da6530848e788b0bf0164 /home/k0kubun/bin/mitamae" | shasum -a 256 -c &&
       chmod +x ~/bin/mitamae
