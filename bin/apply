@@ -1,2 +1,2 @@
 #!/bin/bash
-exec bundle exec hocho apply $@ ruby-sky2
+exec envchain sudo bundle exec hocho apply $@ ruby-sky2

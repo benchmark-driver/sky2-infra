@@ -63,6 +63,17 @@ end
 
 package 'cpufrequtils'
 
+service 'cpufrequtils' do
+  action :nothing
+end
+
+remote_file '/etc/default/cpufrequtils' do
+  mode '644'
+  owner 'root'
+  group 'root'
+  notifies :restart, 'service[cpufrequtils]'
+end
+
 # execute 'git clone --recursive git@github.com:benchmark-driver/skybench /home/k0kubun/skybench' do
 #   not_if 'test -d /home/k0kubun/skybench'
 # end
