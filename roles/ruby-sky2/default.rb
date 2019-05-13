@@ -1,8 +1,15 @@
 # You need to put deploy key for github.com:benchmark-driver/skybench on ruby-sky2.
 # Updating known_hosts is not automated as well.
 
+# Do this manually too:
+# remote_file '/etc/crontab' do
+#   mode '644'
+#   owner 'root'
+#   group 'root'
+# end
+
 include_recipe 'rbenv'
-include_recipe 'ssh'
+include_recipe 'ssh-config'
 
 openssl_version = '1.0.2r'
 execute "install openssl-#{openssl_version}" do
@@ -52,11 +59,7 @@ remote_file '/home/k0kubun/.gitconfig' do
   group 'k0kubun'
 end
 
-remote_file '/etc/crontab' do
-  mode '644'
-  owner 'root'
-  group 'root'
-end
+package 'cpufrequtils'
 
 # execute 'git clone --recursive git@github.com:benchmark-driver/skybench /home/k0kubun/skybench' do
 #   not_if 'test -d /home/k0kubun/skybench'
