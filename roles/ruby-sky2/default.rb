@@ -64,7 +64,11 @@ end
 package 'cpufrequtils'
 
 service 'cpufrequtils' do
-  action :nothing
+  action [:start, :enable]
+end
+
+service 'ondemand' do
+  action [:stop, :disable]
 end
 
 remote_file '/etc/default/cpufrequtils' do
