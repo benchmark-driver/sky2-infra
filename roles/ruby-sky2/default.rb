@@ -86,6 +86,11 @@ execute 'git clone https://github.com/benchmark-driver/sky2-bench /home/k0kubun/
   not_if 'test -d /home/k0kubun/sky2-bench'
 end
 
+execute 'git clone https://github.com/benchmark-driver/sky2-result /home/k0kubun/sky2-bench/sky2-result' do
+  user 'k0kubun'
+  not_if 'test -d /home/k0kubun/sky2-bench/sky2-result'
+end
+
 execute 'git clone https://github.com/ruby/ruby /home/k0kubun/ruby' do
   user 'k0kubun'
   not_if 'test -d /home/k0kubun/ruby'
