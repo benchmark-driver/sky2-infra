@@ -109,18 +109,18 @@ end
   end
 end
 
-remote_file '/home/k0kubun/.config/systemd/user/sky2-bench.service' do
+remote_file '/lib/systemd/system/sky2-bench.service' do
   mode '600'
-  owner 'k0kubun'
-  group 'k0kubun'
+  owner 'root'
+  group 'root'
 end
 
-remote_file '/home/k0kubun/.config/systemd/user/sky2-bench.timer' do
+remote_file '/lib/systemd/system/sky2-bench.timer' do
   mode '600'
-  owner 'k0kubun'
-  group 'k0kubun'
+  owner 'root'
+  group 'root'
 end
 
-link '/home/k0kubun/.config/systemd/user/timers.target.wants/sky2-bench.timer' do
-  to '/home/k0kubun/.config/systemd/user/sky2-bench.timer'
+link '/etc/systemd/system/timers.target.wants/sky2-bench.timer' do
+  to '/lib/systemd/system/sky2-bench.timer'
 end
