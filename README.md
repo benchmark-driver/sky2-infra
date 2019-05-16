@@ -29,12 +29,3 @@ bin/apply -n
 ```
 bin/apply
 ```
-
-## Server operations
-
-### Install Ruby revisions
-
-```
-git -C ~/ruby pull origin trunk
-ruby-builder revision r62448..r62573 -d ~/ruby
-```
