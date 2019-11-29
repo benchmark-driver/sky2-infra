@@ -4,6 +4,23 @@
 # Run `sudo loginctl enable-linger k0kubun` too.
 # Also you should reboot to make sure `cpufreq-info -p` becomes performance.
 
+execute 'mount -a' do
+  action :nothing
+end
+
+remote_file '/etc/fstab' do
+  mode '644'
+  owner 'root'
+  group 'root'
+  notifies :run, 'execute[mount -a]', :immediately
+end
+
+directory '/mnt' do
+  mode '777'
+  owner 'root'
+  group 'root'
+end
+
 include_recipe 'rbenv'
 include_recipe 'ssh-config'
 
@@ -124,16 +141,3 @@ end
 # link '/etc/systemd/system/timers.target.wants/sky2-bench.timer' do
 #   to '/lib/systemd/system/sky2-bench.timer'
 # end
-
-remote_file '/etc/fstab' do
-  mode '644'
-  owner 'root'
-  group 'root'
-end
-
-directory '/mnt' do
-  mode '777'
-  owner 'root'
-  group 'root'
-  only_if 'test -d /mnt'
-end
