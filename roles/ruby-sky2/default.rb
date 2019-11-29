@@ -130,3 +130,10 @@ remote_file '/etc/fstab' do
   owner 'root'
   group 'root'
 end
+
+directory '/mnt' do
+  mode '777'
+  owner 'root'
+  group 'root'
+  only_if 'test -d /mnt'
+end
