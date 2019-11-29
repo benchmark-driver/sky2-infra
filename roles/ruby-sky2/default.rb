@@ -124,3 +124,9 @@ end
 link '/etc/systemd/system/timers.target.wants/sky2-bench.timer' do
   to '/lib/systemd/system/sky2-bench.timer'
 end
+
+remote_file '/etc/fstab' do
+  mode '644'
+  owner 'root'
+  group 'root'
+end
