@@ -138,6 +138,6 @@ remote_file '/lib/systemd/system/sky2-bench.timer' do
   group 'root'
 end
 
-# link '/etc/systemd/system/timers.target.wants/sky2-bench.timer' do
-#   to '/lib/systemd/system/sky2-bench.timer'
-# end
+link '/etc/systemd/system/timers.target.wants/sky2-bench.timer' do
+  to '/lib/systemd/system/sky2-bench.timer'
+end
